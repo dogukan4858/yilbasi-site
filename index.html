@@ -6,13 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Segoe UI", sans-serif;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", sans-serif; }
     body {
       min-height: 100vh;
       background:
@@ -23,7 +17,6 @@
       background-attachment: fixed;
       overflow-x: hidden;
     }
-
     body::before {
       content: "";
       position: fixed;
@@ -38,97 +31,20 @@
       z-index: 0;
       pointer-events: none;
     }
-
-    .text-wrapper {
-      position: relative;
-      z-index: 2;
-      max-width: 760px;
-      margin: auto;
-      padding: 90px 20px 80px;
-      line-height: 2;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 2.4rem;
-      margin-bottom: 30px;
-      color: #9fd4ff;
-      text-shadow: 0 0 12px rgba(159,212,255,0.6);
-    }
-
-    p {
-      margin-bottom: 24px;
-      font-size: 1.06rem;
-      color: #bfe4ff;
-      text-shadow: 0 0 10px rgba(191,228,255,0.45);
-    }
-
+    .text-wrapper { position: relative; z-index: 2; max-width: 760px; margin: auto; padding: 90px 20px 80px; line-height: 2; text-align: center; }
+    h1 { font-size: 2.4rem; margin-bottom: 30px; color: #9fd4ff; text-shadow: 0 0 12px rgba(159,212,255,0.6); }
+    p { margin-bottom: 24px; font-size: 1.06rem; color: #bfe4ff; text-shadow: 0 0 10px rgba(191,228,255,0.45); }
     strong { color: #9fd4ff; }
-
-    button {
-      padding: 14px 34px;
-      border-radius: 30px;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
-      background: rgba(255,255,255,0.9);
-      color: #003a66;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background: white;
-      transform: scale(1.05);
-    }
-
-    /* ÜST SAHNE */
-    .intro {
-      transition: opacity 1.8s ease, transform 1.8s ease;
-    }
-
-    .intro.hide {
-      opacity: 0;
-      transform: translateY(-30px);
-      pointer-events: none;
-    }
-
-    /* ALT SAHNE – BAŞTA YER KAPLIYOR AMA GÖRÜNMÜYOR */
-    .hidden-content {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 2.2s ease, transform 2.2s ease;
-      visibility: hidden;
-    }
-
-    .hidden-content.show {
-      opacity: 1;
-      transform: translateY(0);
-      visibility: visible;
-    }
-
-    .list {
-      margin: 30px 0;
-      text-align: left;
-      display: inline-block;
-    }
-
-    .list p {
-      margin-bottom: 14px;
-    }
-
-    .snow {
-      position: fixed;
-      top: -10px;
-      color: #eaf6ff;
-      animation: fall linear infinite;
-      z-index: 1;
-      pointer-events: none;
-      opacity: 0.85;
-    }
-
-    @keyframes fall {
-      to { transform: translateY(110vh); }
-    }
+    button { padding: 14px 34px; border-radius: 30px; border: none; cursor: pointer; font-size: 1rem; background: rgba(255,255,255,0.9); color: #003a66; transition: 0.3s; }
+    button:hover { background: white; transform: scale(1.05); }
+    .intro { transition: opacity 1.8s ease, transform 1.8s ease; }
+    .intro.hide { opacity: 0; transform: translateY(-30px); pointer-events: none; }
+    .hidden-content { opacity: 0; transform: translateY(40px); transition: opacity 2.2s ease, transform 2.2s ease; visibility: hidden; }
+    .hidden-content.show { opacity: 1; transform: translateY(0); visibility: visible; }
+    .list { margin: 30px 0; text-align: left; display: inline-block; }
+    .list p { margin-bottom: 14px; }
+    .snow { position: fixed; top: -10px; color: #eaf6ff; animation: fall linear infinite; z-index: 1; pointer-events: none; opacity: 0.85; }
+    @keyframes fall { to { transform: translateY(110vh); } }
   </style>
 </head>
 
@@ -138,23 +54,16 @@
 
     <div id="intro" class="intro">
       <h1>Yeni bir yıla girerken…</h1>
-
       <p>
         Bu sayfa, 2026’ya girerken<br>
         yüzünde küçük bir tebessüm olsun diye hazırlandı.
       </p>
-
       <button onclick="startExperience()">🎵 Okurken çalması için</button>
     </div>
 
     <div id="hidden" class="hidden-content">
 
-      <p>
-        Bu yıl güzeldi çünkü…<br>
-        Bazı yıllar büyük şeylerden değil,<br>
-        küçük anların bıraktığı hislerden hatırlanır.
-      </p>
-
+      <p>Bu yıl güzeldi çünkü…<br>Bazı yıllar büyük şeylerden değil,<br>küçük anların bıraktığı hislerden hatırlanır.</p>
       <p>2025 benim için böyle bir yıldı.</p>
 
       <p><strong>2026 için küçük dilekler</strong></p>
@@ -167,28 +76,16 @@
       </div>
 
       <p><strong>Küçük bir not</strong></p>
-
-      <p>
-        Herkes yeni yıl için dilek tutar.<br>
-        Ben de tuttum.<br>
-        Ama yüksek sesle söylemedim.
-      </p>
-
+      <p>Herkes yeni yıl için dilek tutar.<br>Ben de tuttum.<br>Ama yüksek sesle söylemedim.</p>
       <p>Bazı dilekler sessiz olunca daha güzel oluyor.</p>
-
-      <p>
-        Yeni yılın sana iyi gelsin ☃️🎄✨<br>
-        Umarım bu sayfa, yılın ilk güzel detaylarından biri olur.
-      </p>
-
-      <p style="opacity:0.75; margin-top:45px;">
-        — Sana 2025’ten küçük bir hatıra Nur
-      </p>
+      <p>Yeni yılın sana iyi gelsin ☃️🎄✨<br>Umarım bu sayfa, yılın ilk güzel detaylarından biri olur.</p>
+      <p style="opacity:0.75; margin-top:45px;">— 2025’ten küçük bir hatıra</p>
 
     </div>
   </div>
 
-  <audio id="music">
+  <!-- Arka plan müziği -->
+  <audio id="music" loop>
     <source src="music/bi_sigara.mp3" type="audio/mpeg">
   </audio>
 
@@ -201,8 +98,9 @@
       intro.classList.add("hide");
 
       audio.volume = 0;
-      audio.play();
+      audio.play().catch(e => console.log("Otomatik çalma engellendi, kullanıcı etkileşimi gerekebilir"));
 
+      // Fade in efekti
       let v = 0;
       const fade = setInterval(() => {
         if (v < 1) {
@@ -213,12 +111,10 @@
         }
       }, 200);
 
-      // DOĞAL BEKLEME
-      setTimeout(() => {
-        hidden.classList.add("show");
-      }, 1600);
+      setTimeout(() => hidden.classList.add("show"), 1600);
     }
 
+    // Kar taneleri
     for (let i = 0; i < 50; i++) {
       const snow = document.createElement("div");
       snow.className = "snow";
