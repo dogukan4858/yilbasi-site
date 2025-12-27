@@ -1,245 +1,234 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<title>Yeni Bir Yıla Girerken</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Yeni Yıla Girerken</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:'Inter',sans-serif;
-    color:#fff;
-    background:url('https://images.unsplash.com/photo-1519681393784-d120267933ba')
-        no-repeat center center/cover;
-    min-height:100vh;
-    overflow-x:hidden;
-}
-
-/* Karanlık katman */
-.overlay{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.6);
-    z-index:-3;
-}
-
-section{
-    padding:90px 20px;
-    max-width:900px;
-    margin:auto;
-    text-align:center;
-}
-
-.hero{
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-}
-
-h1,h2{
-    font-family:'Playfair Display',serif;
-    margin-bottom:20px;
-}
-
-h1{font-size:2.8rem;}
-h2{font-size:2rem;}
-
-p{
-    font-size:1.1rem;
-    line-height:1.8;
-    max-width:700px;
-    margin:auto;
-    color:#f2f2f2;
-}
-
-.card{
-    background:rgba(255,255,255,0.08);
-    backdrop-filter:blur(8px);
-    border-radius:18px;
-    padding:40px;
-    margin-top:40px;
-    box-shadow:0 15px 40px rgba(0,0,0,0.35);
-}
-
-ul{
-    list-style:none;
-    margin-top:20px;
-}
-
-ul li{
-    margin:12px 0;
-    font-size:1.05rem;
-}
-
-/* Müzik butonu */
-.music-btn{
-    margin-top:35px;
-    padding:12px 32px;
-    border:none;
-    border-radius:30px;
-    background:rgba(255,255,255,0.18);
-    color:#fff;
-    font-size:0.95rem;
-    cursor:pointer;
-    backdrop-filter:blur(6px);
-    transition:0.3s;
-}
-
-.music-btn:hover{
-    background:rgba(255,255,255,0.35);
-}
-
-/* Yıldızlar */
-.star{
-    position:fixed;
-    background:white;
-    border-radius:50%;
-    opacity:0.8;
-    animation:twinkle infinite alternate;
-    z-index:-2;
-}
-
-@keyframes twinkle{
-    from{opacity:0.3;}
-    to{opacity:1;}
-}
-
-/* Kar */
-.snow{
-    position:fixed;
-    top:-10px;
-    color:#fff;
-    font-size:1em;
-    animation:fall linear infinite;
-    opacity:0.9;
-    z-index:-2;
-}
-
-@keyframes fall{
-    to{
-        transform:translateY(110vh);
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
     }
-}
 
-footer{
-    padding:60px 20px;
-    font-size:0.95rem;
-    color:#ddd;
-}
-</style>
+    body {
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(0,0,30,0.4), rgba(0,0,0,0.8)),
+        url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1920&q=80");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 15% 25%, #cfe9ff, transparent),
+        radial-gradient(2px 2px at 35% 70%, #e6f3ff, transparent),
+        radial-gradient(1px 1px at 55% 35%, #d8ecff, transparent),
+        radial-gradient(2px 2px at 75% 60%, #f0f8ff, transparent),
+        radial-gradient(1px 1px at 85% 20%, #cfe9ff, transparent);
+      opacity: 0.9;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .text-wrapper {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+      margin: auto;
+      padding: 90px 20px 80px;
+      line-height: 2;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 30px;
+      color: #9fd4ff;
+      text-shadow: 0 0 12px rgba(159,212,255,0.6);
+    }
+
+    p {
+      margin-bottom: 24px;
+      font-size: 1.06rem;
+      color: #bfe4ff;
+      text-shadow: 0 0 10px rgba(191,228,255,0.45);
+    }
+
+    strong { color: #9fd4ff; }
+
+    button {
+      padding: 14px 34px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      background: rgba(255,255,255,0.9);
+      color: #003a66;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: white;
+      transform: scale(1.05);
+    }
+
+    /* ÜST SAHNE */
+    .intro {
+      transition: opacity 1.8s ease, transform 1.8s ease;
+    }
+
+    .intro.hide {
+      opacity: 0;
+      transform: translateY(-30px);
+      pointer-events: none;
+    }
+
+    /* ALT SAHNE – BAŞTA YER KAPLIYOR AMA GÖRÜNMÜYOR */
+    .hidden-content {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 2.2s ease, transform 2.2s ease;
+      visibility: hidden;
+    }
+
+    .hidden-content.show {
+      opacity: 1;
+      transform: translateY(0);
+      visibility: visible;
+    }
+
+    .list {
+      margin: 30px 0;
+      text-align: left;
+      display: inline-block;
+    }
+
+    .list p {
+      margin-bottom: 14px;
+    }
+
+    .snow {
+      position: fixed;
+      top: -10px;
+      color: #eaf6ff;
+      animation: fall linear infinite;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.85;
+    }
+
+    @keyframes fall {
+      to { transform: translateY(110vh); }
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="overlay"></div>
+  <div class="text-wrapper">
 
-<!-- Müzik (yerel dosya) -->
-<audio id="bgMusic" loop>
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
+    <div id="intro" class="intro">
+      <h1>Yeni bir yıla girerken…</h1>
 
-<!-- Hero -->
-<section class="hero">
-    <h1>Yeni bir yıla girerken…</h1>
-    <p>
-        Bu sayfa, 2025’e girerken<br>
+      <p>
+        Bu sayfa, 2026’ya girerken<br>
         yüzünde küçük bir tebessüm olsun diye hazırlandı.
-    </p>
+      </p>
 
-    <button class="music-btn" onclick="playMusic(this)">
-        ✨ Küçük bir müzik
-    </button>
-</section>
-
-<!-- Yıl -->
-<section>
-    <div class="card">
-        <h2>Bu yıl güzeldi çünkü…</h2>
-        <p>
-            Bazı yıllar büyük şeylerden değil,<br>
-            küçük anların bıraktığı hislerden hatırlanır.
-            <br><br>
-            2024 benim için böyle bir yıldı.
-        </p>
+      <button onclick="startExperience()">🎵 Okurken çalması için</button>
     </div>
-</section>
 
-<!-- Dilekler -->
-<section>
-    <div class="card">
-        <h2>2025 için küçük dilekler</h2>
-        <ul>
-            <li>✨ Daha çok gülümsemen</li>
-            <li>✨ Hayatının sana güzel sürprizler yapması</li>
-            <li>✨ Kendinle gurur duyacağın anlar</li>
-            <li>✨ Seni mutlu eden şeylerin çoğalması</li>
-        </ul>
+    <div id="hidden" class="hidden-content">
+
+      <p>
+        Bu yıl güzeldi çünkü…<br>
+        Bazı yıllar büyük şeylerden değil,<br>
+        küçük anların bıraktığı hislerden hatırlanır.
+      </p>
+
+      <p>2025 benim için böyle bir yıldı.</p>
+
+      <p><strong>2026 için küçük dilekler</strong></p>
+
+      <div class="list">
+        <p>✨ Daha çok gülümsemen</p>
+        <p>✨ Hayatının sana güzel sürprizler yapması</p>
+        <p>✨ Kendinle gurur duyacağın anlar</p>
+        <p>✨ Seni mutlu eden şeylerin çoğalması</p>
+      </div>
+
+      <p><strong>Küçük bir not</strong></p>
+
+      <p>
+        Herkes yeni yıl için dilek tutar.<br>
+        Ben de tuttum.<br>
+        Ama yüksek sesle söylemedim.
+      </p>
+
+      <p>Bazı dilekler sessiz olunca daha güzel oluyor.</p>
+
+      <p>
+        Yeni yılın sana iyi gelsin ☃️🎄✨<br>
+        Umarım bu sayfa, yılın ilk güzel detaylarından biri olur.
+      </p>
+
+      <p style="opacity:0.75; margin-top:45px;">
+        — Sana 2025’ten küçük bir hatıra Nur
+      </p>
+
     </div>
-</section>
+  </div>
 
-<!-- Not -->
-<section>
-    <div class="card">
-        <h2>Küçük bir not</h2>
-        <p>
-            Herkes yeni yıl için dilek tutar.<br>
-            Ben de tuttum.<br>
-            Ama yüksek sesle söylemedim.
-            <br><br>
-            Bazı dilekler sessiz olunca daha güzel oluyor.
-        </p>
-    </div>
-</section>
+  <audio id="music">
+    <source src="music/bi_sigara.mp3" type="audio/mpeg">
+  </audio>
 
-<footer>
-    Yeni yılın sana iyi gelsin 🎄✨<br>
-    Umarım bu sayfa, yılın ilk güzel detaylarından biri olur.
-    <br><br>
-    — 2024’ten küçük bir hatıra
-</footer>
+  <script>
+    function startExperience() {
+      const audio = document.getElementById("music");
+      const intro = document.getElementById("intro");
+      const hidden = document.getElementById("hidden");
 
-<script>
-/* Müzik başlat + buton gizle */
-function playMusic(btn){
-    const music = document.getElementById("bgMusic");
-    music.volume = 0.8;
-    music.play();
-    btn.style.display = "none";
-}
+      intro.classList.add("hide");
 
-/* Yıldızlar */
-for(let i=0;i<140;i++){
-    const star=document.createElement("div");
-    star.className="star";
-    const size=Math.random()*2+1;
-    star.style.width=size+"px";
-    star.style.height=size+"px";
-    star.style.left=Math.random()*100+"vw";
-    star.style.top=Math.random()*100+"vh";
-    star.style.animationDuration=(Math.random()*3+2)+"s";
-    document.body.appendChild(star);
-}
+      audio.volume = 0;
+      audio.play();
 
-/* Kar */
-for(let i=0;i<60;i++){
-    const snow=document.createElement("div");
-    snow.className="snow";
-    snow.innerHTML="❄";
-    snow.style.left=Math.random()*100+"vw";
-    snow.style.fontSize=(Math.random()*10+10)+"px";
-    snow.style.animationDuration=(Math.random()*5+5)+"s";
-    document.body.appendChild(snow);
-}
-</script>
+      let v = 0;
+      const fade = setInterval(() => {
+        if (v < 1) {
+          v += 0.05;
+          audio.volume = v;
+        } else {
+          clearInterval(fade);
+        }
+      }, 200);
+
+      // DOĞAL BEKLEME
+      setTimeout(() => {
+        hidden.classList.add("show");
+      }, 1600);
+    }
+
+    for (let i = 0; i < 50; i++) {
+      const snow = document.createElement("div");
+      snow.className = "snow";
+      snow.innerHTML = "❄";
+      snow.style.left = Math.random() * 100 + "vw";
+      snow.style.fontSize = Math.random() * 22 + 10 + "px";
+      snow.style.animationDuration = Math.random() * 6 + 6 + "s";
+      document.body.appendChild(snow);
+    }
+  </script>
 
 </body>
 </html>
