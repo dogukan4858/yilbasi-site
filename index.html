@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Yeni Bir Yıla Girerken</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    color:#fff;
+    background:url('https://images.unsplash.com/photo-1519681393784-d120267933ba')
+        no-repeat center center/cover;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+/* Karanlık katman */
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    z-index:-3;
+}
+
+section{
+    padding:90px 20px;
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+h1,h2{
+    font-family:'Playfair Display',serif;
+    margin-bottom:20px;
+}
+
+h1{font-size:2.8rem;}
+h2{font-size:2rem;}
+
+p{
+    font-size:1.1rem;
+    line-height:1.8;
+    max-width:700px;
+    margin:auto;
+    color:#f2f2f2;
+}
+
+.card{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(8px);
+    border-radius:18px;
+    padding:40px;
+    margin-top:40px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.35);
+}
+
+ul{
+    list-style:none;
+    margin-top:20px;
+}
+
+ul li{
+    margin:12px 0;
+    font-size:1.05rem;
+}
+
+/* Müzik butonu */
+.music-btn{
+    margin-top:35px;
+    padding:12px 32px;
+    border:none;
+    border-radius:30px;
+    background:rgba(255,255,255,0.18);
+    color:#fff;
+    font-size:0.95rem;
+    cursor:pointer;
+    backdrop-filter:blur(6px);
+    transition:0.3s;
+}
+
+.music-btn:hover{
+    background:rgba(255,255,255,0.35);
+}
+
+/* Yıldızlar */
+.star{
+    position:fixed;
+    background:white;
+    border-radius:50%;
+    opacity:0.8;
+    animation:twinkle infinite alternate;
+    z-index:-2;
+}
+
+@keyframes twinkle{
+    from{opacity:0.3;}
+    to{opacity:1;}
+}
+
+/* Kar */
+.snow{
+    position:fixed;
+    top:-10px;
+    color:#fff;
+    font-size:1em;
+    animation:fall linear infinite;
+    opacity:0.9;
+    z-index:-2;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh);
+    }
+}
+
+footer{
+    padding:60px 20px;
+    font-size:0.95rem;
+    color:#ddd;
+}
+</style>
+</head>
+<body>
+
+<div class="overlay"></div>
+
+<!-- Müzik (yerel dosya) -->
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Hero -->
+<section class="hero">
+    <h1>Yeni bir yıla girerken…</h1>
+    <p>
+        Bu sayfa, 2025’e girerken<br>
+        yüzünde küçük bir tebessüm olsun diye hazırlandı.
+    </p>
+
+    <button class="music-btn" onclick="playMusic(this)">
+        ✨ Küçük bir müzik
+    </button>
+</section>
+
+<!-- Yıl -->
+<section>
+    <div class="card">
+        <h2>Bu yıl güzeldi çünkü…</h2>
+        <p>
+            Bazı yıllar büyük şeylerden değil,<br>
+            küçük anların bıraktığı hislerden hatırlanır.
+            <br><br>
+            2024 benim için böyle bir yıldı.
+        </p>
+    </div>
+</section>
+
+<!-- Dilekler -->
+<section>
+    <div class="card">
+        <h2>2025 için küçük dilekler</h2>
+        <ul>
+            <li>✨ Daha çok gülümsemen</li>
+            <li>✨ Hayatının sana güzel sürprizler yapması</li>
+            <li>✨ Kendinle gurur duyacağın anlar</li>
+            <li>✨ Seni mutlu eden şeylerin çoğalması</li>
+        </ul>
+    </div>
+</section>
+
+<!-- Not -->
+<section>
+    <div class="card">
+        <h2>Küçük bir not</h2>
+        <p>
+            Herkes yeni yıl için dilek tutar.<br>
+            Ben de tuttum.<br>
+            Ama yüksek sesle söylemedim.
+            <br><br>
+            Bazı dilekler sessiz olunca daha güzel oluyor.
+        </p>
+    </div>
+</section>
+
+<footer>
+    Yeni yılın sana iyi gelsin 🎄✨<br>
+    Umarım bu sayfa, yılın ilk güzel detaylarından biri olur.
+    <br><br>
+    — 2024’ten küçük bir hatıra
+</footer>
+
+<script>
+/* Müzik başlat + buton gizle */
+function playMusic(btn){
+    const music = document.getElementById("bgMusic");
+    music.volume = 0.8;
+    music.play();
+    btn.style.display = "none";
+}
+
+/* Yıldızlar */
+for(let i=0;i<140;i++){
+    const star=document.createElement("div");
+    star.className="star";
+    const size=Math.random()*2+1;
+    star.style.width=size+"px";
+    star.style.height=size+"px";
+    star.style.left=Math.random()*100+"vw";
+    star.style.top=Math.random()*100+"vh";
+    star.style.animationDuration=(Math.random()*3+2)+"s";
+    document.body.appendChild(star);
+}
+
+/* Kar */
+for(let i=0;i<60;i++){
+    const snow=document.createElement("div");
+    snow.className="snow";
+    snow.innerHTML="❄";
+    snow.style.left=Math.random()*100+"vw";
+    snow.style.fontSize=(Math.random()*10+10)+"px";
+    snow.style.animationDuration=(Math.random()*5+5)+"s";
+    document.body.appendChild(snow);
+}
+</script>
+
+</body>
+</html>
