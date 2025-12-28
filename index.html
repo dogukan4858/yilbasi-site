@@ -51,7 +51,6 @@
 <body>
 
   <div class="text-wrapper">
-
     <div id="intro" class="intro">
       <h1>Yeni bir yıla girerken…</h1>
       <p>
@@ -62,31 +61,25 @@
     </div>
 
     <div id="hidden" class="hidden-content">
-
       <p>Bu yıl güzeldi çünkü…<br>Bazı yıllar büyük şeylerden değil,<br>küçük anların bıraktığı hislerden hatırlanır.</p>
       <p>2025 benim için böyle bir yıldı.</p>
-
       <p><strong>2026 için küçük dilekler</strong></p>
-
       <div class="list">
         <p>✨ Daha çok gülümsemen</p>
         <p>✨ Hayatının sana güzel sürprizler yapması</p>
         <p>✨ Kendinle gurur duyacağın anlar</p>
         <p>✨ Seni mutlu eden şeylerin çoğalması</p>
       </div>
-
       <p><strong>Küçük bir not</strong></p>
       <p>Herkes yeni yıl için dilek tutar.<br>Ben de tuttum.<br>Ama yüksek sesle söylemedim.</p>
       <p>Bazı dilekler sessiz olunca daha güzel oluyor.</p>
       <p>Yeni yılın sana iyi gelsin ☃️🎄✨<br>Umarım bu sayfa, yılın ilk güzel detaylarından biri olur.</p>
       <p style="opacity:0.75; margin-top:45px;">— 2025’ten küçük bir hatıra</p>
-
     </div>
   </div>
 
-  <!-- Arka plan müziği -->
-  <audio id="music" loop>
-    <source src="music/bi_sigara.mp3" type="audio/mpeg">
+  <audio id="music" loop preload="auto">
+    <source src="bi_sigara.mp3" type="audio/mpeg">
   </audio>
 
   <script>
@@ -97,19 +90,23 @@
 
       intro.classList.add("hide");
 
+      // Önce sesi sıfırla, sonra başlat
       audio.volume = 0;
-      audio.play().catch(e => console.log("Otomatik çalma engellendi, kullanıcı etkileşimi gerekebilir"));
-
-      // Fade in efekti
-      let v = 0;
-      const fade = setInterval(() => {
-        if (v < 1) {
-          v += 0.05;
-          audio.volume = v;
-        } else {
-          clearInterval(fade);
-        }
-      }, 200);
+      
+      audio.play().then(() => {
+        // Ses seviyesini güvenli bir şekilde artır (0 ile 1 arası)
+        let vol = 0;
+        const fade = setInterval(() => {
+          if (vol < 0.8) {
+            vol += 0.1;
+            audio.volume = Math.min(vol, 1).toFixed(1);
+          } else {
+            clearInterval(fade);
+          }
+        }, 200);
+      }).catch(err => {
+        console.error("Müzik çalınamadı. Lütfen dosyanın yüklendiğinden emin olun.", err);
+      });
 
       setTimeout(() => hidden.classList.add("show"), 1600);
     }
